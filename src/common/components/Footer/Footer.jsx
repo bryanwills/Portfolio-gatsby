@@ -35,7 +35,7 @@ const Footer = () => {
         <Row>
           <Col sm>
             <h1>Let's Connect</h1>
-            {!isLoading && visits?.lenght > 0 && (
+            {!isLoading && visits?.length > 0 && (
               <h6>
                 Visits:{' '}
                 <OverlayTrigger
