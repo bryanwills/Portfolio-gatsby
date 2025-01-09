@@ -71,18 +71,15 @@ export default function Contact() {
     }
 
     try {
-      const response = await fetch(
-        `${process.env.REACT_APP_BACKEND_URL}/send`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            message: `New Contact Form Submission:\n\n👤 Name: ${data.name}\n📧 Email: ${data.email}\n💬 Message: ${data.message}`,
-          }),
-        }
-      );
+      const response = await fetch(`${process.env.GATSBY_BACKEND_URL}/send`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          message: `New Contact Form Submission:\n\n👤 Name: ${data.name}\n📧 Email: ${data.email}\n💬 Message: ${data.message}`,
+        }),
+      });
 
       if (response.ok) {
         toast.success(

@@ -11,9 +11,9 @@ import { siteConfig } from "@/config/site";
 
 export default function Hero() {
   return (
-    <Row className="md:justify-between justify-center">
-      <Col className="gap-6 md:items-start">
-        <Col className="gap-2 md:items-start">
+    <Row className="lg:justify-between justify-center">
+      <Col className="gap-6 lg:items-start">
+        <Col className="gap-2 lg:items-start">
           <p>Hey!</p>
           <h2 className="text-5xl font-medium">
             I'm <span className="text-primary">Rakesh</span>
@@ -66,7 +66,7 @@ export default function Hero() {
         src="../../../images/avatar.png"
         alt="Rakesh Potnuru"
         placeholder="blurred"
-        className="rounded-full hidden md:block w-[300px] lg:w-[500px] h-[300px] lg:h-[500px]"
+        className="rounded-full hidden lg:block w-[500px] :h-[500px]"
       />
     </Row>
   );
@@ -95,7 +95,8 @@ export function SocialItems() {
           href={item.link}
           className="text-2xl hover:opacity-90"
           target="_blank"
-          title={item.title} rel="noreferrer"
+          title={item.title}
+          rel="noreferrer"
         >
           {item.icon}
         </a>
