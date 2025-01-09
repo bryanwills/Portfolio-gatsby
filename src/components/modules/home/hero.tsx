@@ -66,7 +66,7 @@ export default function Hero() {
         src="../../../images/avatar.png"
         alt="Rakesh Potnuru"
         placeholder="blurred"
-        className="rounded-full hidden lg:block w-[500px] :h-[500px]"
+        className="rounded-full !hidden lg:block w-[500px] :h-[500px]"
       />
     </Row>
   );
