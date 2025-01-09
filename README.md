@@ -1,56 +1,49 @@
-# Portfolio Website
+<p align="center">
+  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts">
+    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
+  </a>
+</p>
+<h1 align="center">
+  Gatsby Minimal TypeScript Starter
+</h1>
 
-> **Warning**
->
-> Please change script tags (Google analytics, tawk and schema markup) in `index.html`
+## 🚀 Quick start
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/9791dc74-ed3e-40c5-bc3d-0a823a64cebc/deploy-status)](https://app.netlify.com/sites/itsrakesh/deploys)
-[![Better Stack Badge](https://uptime.betterstack.com/status-badges/v1/monitor/sq5a.svg)](https://status.itsrakesh.com)
+1.  **Create a Gatsby site.**
 
-Visit - [itsrakesh.com](https://itsrakesh.com)
+    Use the Gatsby CLI to create a new site, specifying the minimal TypeScript starter.
 
-<img width="960" alt="Screenshot 2022-01-16 154645" src="https://user-images.githubusercontent.com/70439799/149660033-475229da-96c7-46d1-b05d-c893a3946932.png">
+    ```shell
+    # create a new Gatsby site using the minimal TypeScript starter
+    npm init gatsby -- -ts
+    ```
 
-Backend Repo - [Here](https://github.com/RakeshPotnuru/Portfolio-Server)
+2.  **Start developing.**
 
-Made with
+    Navigate into your new site’s directory and start it up.
 
-- ReactJs
-- NodeJs
-- Bootstrap
+    ```shell
+    cd my-gatsby-site/
+    npm run develop
+    ```
 
-Deployed with
+3.  **Open the code and start customizing!**
 
-- Netlify
-- Heroku
+    Your site is now running at http://localhost:8000!
 
-API's used - [Dev](https://developers.forem.com/api)
+    Edit `src/pages/index.tsx` to see your site update in real-time!
 
-## Development
+4.  **Learn more**
 
-- Install dependencies
+    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+    - [Tutorials](https://www.gatsbyjs.com/docs/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+    - [Guides](https://www.gatsbyjs.com/docs/how-to/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
 
-  ```bash
-  yarn
-  ```
+## 🚀 Quick start (Netlify)
 
-- Start development server
+Deploy this starter with one click on [Netlify](https://app.netlify.com/signup):
 
-  ```bash
-  yarn start
-  ```
-
-### Or with Docker
-
-- Build the image
-
-  ```bash
-  docker-compose build
-  ```
-
-- Run the docker image
-  ```bash
-  docker-compose up
-  ```
-
-> If you are getting "error:0308010C:digital envelope routines::unsupported". Read [this](https://stackoverflow.com/a/69699772/14408933) stackoverflow answer.
+[<img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" />](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-minimal-ts)

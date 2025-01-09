@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 11%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 11%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 11%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 19.3 100% 50.6%;
+    --primary-foreground: 0 85.7% 97.3%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 19.3 100% 50.6%;
+    --radius: 0.75rem;
+    --chart-1: 207 65.7% 73.7%;
+    --chart-2: 182deg, 42.6%, 60.4%;
+    --chart-3: 183deg, 27.7%, 30.4%;
+    --chart-4: 207deg, 23.4%, 36.9%;
+    --chart-5: 39.8deg, 74.5%, 46.1%;
+    --chart-6: 226deg, 100%, 75.9%;
+    --chart-7: 48deg, 100%, 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:shadow-[inset_0_0_6px_hsl(var(--primary))] [&::-webkit-scrollbar-thumb]:rounded-md [&::-webkit-scrollbar-thumb]:bg-primary;
+    @apply [&::selection]:bg-primary [&::selection]:text-foreground;
+    cursor: url("/cursor.png"), auto;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Poppins", sans-serif;
+  }
+}
+
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.typing::after {
+  content: "|";
+  opacity: 1;
+  animation: blink 1s linear infinite;
+  @apply text-primary;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+iframe,
+.react-player__preview {
+  @apply rounded-xl;
+}
+
+a {
+  cursor: pointer;
+}
