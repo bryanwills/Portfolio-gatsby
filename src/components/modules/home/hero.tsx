@@ -62,12 +62,16 @@ export default function Hero() {
         </Row>
       </Col>
 
-      <StaticImage
-        src="../../../images/avatar.png"
-        alt="Rakesh Potnuru"
-        placeholder="blurred"
-        className="rounded-full !hidden lg:block w-[500px] :h-[500px]"
-      />
+      <div className="hidden lg:block">
+        <StaticImage
+          src="../../../images/avatar.png"
+          alt="Rakesh Potnuru"
+          placeholder="blurred"
+          width={500}
+          height={500}
+          className="rounded-full"
+        />
+      </div>
     </Row>
   );
 }
