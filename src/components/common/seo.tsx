@@ -7,6 +7,7 @@ interface SeoProps extends Partial<SiteMetadata> {
   children?: React.ReactNode;
   canonicalUrl?: string;
   ogType?: "website" | "article";
+  imageUrl?: string;
 }
 
 export const Seo = ({
@@ -17,6 +18,7 @@ export const Seo = ({
   children,
   canonicalUrl,
   ogType = "website",
+  imageUrl,
 }: SeoProps) => {
   const {
     title: defaultTitle,
@@ -29,7 +31,7 @@ export const Seo = ({
   const seo = {
     title: title ? `${title} | ${defaultTitle}` : defaultTitle,
     description: description ?? defaultDescription,
-    image: `${siteUrl}${image ?? defaultImage}`,
+    image: imageUrl || `${siteUrl}${image ?? defaultImage}`,
     url: `${siteUrl}${pathname ?? ""}`,
   };
 

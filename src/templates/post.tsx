@@ -32,7 +32,7 @@ export function Head({ data }: PageProps<Queries.PostBySlugQuery>) {
     <Seo
       title={title!}
       description={description!}
-      image={cover?.[0]?.url!}
+      imageUrl={cover?.[0]?.url!}
       pathname={`${siteConfig.pages.blog.link}/${slug}`}
       canonicalUrl={canonical ?? undefined}
       ogType="article"
