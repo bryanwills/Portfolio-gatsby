@@ -33,6 +33,7 @@ export function Head() {
     <Seo
       title={siteConfig.pages.about.title}
       description={siteConfig.pages.about.description}
+      pathname={siteConfig.pages.about.link}
     />
   );
 }

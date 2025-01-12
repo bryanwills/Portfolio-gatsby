@@ -5,6 +5,8 @@ import { SiteMetadata, useSiteMetadata } from "@/hooks/use-site-metadata";
 interface SeoProps extends Partial<SiteMetadata> {
   pathname?: string;
   children?: React.ReactNode;
+  canonicalUrl?: string;
+  ogType?: "website" | "article";
 }
 
 export const Seo = ({
@@ -13,6 +15,8 @@ export const Seo = ({
   image,
   pathname,
   children,
+  canonicalUrl,
+  ogType = "website",
 }: SeoProps) => {
   const {
     title: defaultTitle,
@@ -27,7 +31,6 @@ export const Seo = ({
     description: description ?? defaultDescription,
     image: `${siteUrl}${image ?? defaultImage}`,
     url: `${siteUrl}${pathname ?? ""}`,
-    twitterUsername,
   };
 
   return (
@@ -40,11 +43,13 @@ export const Seo = ({
       <meta name="twitter:url" content={seo.url} />
       <meta name="twitter:description" content={seo.description} />
       <meta name="twitter:image" content={seo.image} />
-      <meta name="twitter:creator" content={seo.twitterUsername} />
+      <meta name="twitter:creator" content={twitterUsername} />
       <meta property="og:title" content={seo.title} />
       <meta property="og:url" content={seo.url} />
       <meta property="og:description" content={seo.description} />
       <meta property="og:image" content={seo.image} />
+      <meta property="og:type" content={ogType} />
+      {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
       {children}
     </>
   );

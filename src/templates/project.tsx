@@ -10,18 +10,20 @@ import { siteConfig } from "@/config/site";
 export default function ProjectTemplate({
   location,
   data,
-}: Readonly<PageProps<Queries.ProjectBySlugQueryQuery>>) {
+}: Readonly<PageProps<Queries.ProjectBySlugQuery>>) {
   const { images, videoDemoUrl } = data.contentfulProject!;
 
   return (
-    <Layout location={location} className="flex flex-col gap-10">
-      <Header images={images} videoDemoUrl={videoDemoUrl} />
-      <Body contentfulProject={data.contentfulProject} />
+    <Layout location={location} className="justify-center flex">
+      <article className="flex flex-col gap-10">
+        <Header images={images} videoDemoUrl={videoDemoUrl} />
+        <Body contentfulProject={data.contentfulProject} />
+      </article>
     </Layout>
   );
 }
 
-export function Head({ data }: PageProps<Queries.ProjectBySlugQueryQuery>) {
+export function Head({ data }: PageProps<Queries.ProjectBySlugQuery>) {
   const { title, slug, images } = data.contentfulProject!;
 
   return (
@@ -29,14 +31,14 @@ export function Head({ data }: PageProps<Queries.ProjectBySlugQueryQuery>) {
       title={title!}
       image={images![0]?.publicUrl}
       pathname={`${siteConfig.pages.projects.link}/${slug}`}
+      ogType="article"
     />
   );
 }
 
 export const pageQuery = graphql`
-  query ProjectBySlugQuery($slug: String!) {
+  query ProjectBySlug($slug: String!) {
     contentfulProject(slug: { eq: $slug }) {
-      id
       slug
       title
       url

@@ -4,6 +4,7 @@ import React from "react";
 import Layout from "@/components/common/layout";
 import { Seo } from "@/components/common/seo";
 import Hero from "@/components/modules/home/hero";
+import LatestBlogPosts from "@/components/modules/home/latest-blog-posts";
 import PastClients from "@/components/modules/home/past-clients";
 import RecentProjects from "@/components/modules/home/recent-projects";
 import WhyHireMe from "@/components/modules/home/why-hire-me";
@@ -17,6 +18,7 @@ export default function HomePage({
       <Hero />
       <PastClients pastClients={data.allContentfulClient} />
       <RecentProjects projects={data.allContentfulProject} />
+      <LatestBlogPosts nodes={data.allContentfulBlogPost.nodes} />
       <WhyHireMe />
     </Layout>
   );
@@ -46,6 +48,20 @@ export const pageQuery = graphql`
           gatsbyImageData(placeholder: BLURRED)
         }
         url
+      }
+    }
+    allContentfulBlogPost(limit: 2, sort: [{ publishedAt: DESC }]) {
+      nodes {
+        id
+        slug
+        title
+        cover {
+          gatsbyImageData(placeholder: BLURRED)
+        }
+        tags
+        excerpt
+        isFeatured
+        publishedAt
       }
     }
   }

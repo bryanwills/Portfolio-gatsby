@@ -32,7 +32,7 @@ export default function ScrollToTop() {
       onClick={scrollToTop}
       size={"icon"}
       className={cn(
-        "rounded-full fixed bottom-4 right-4 bg-chart-2 text-background shadow-chart-2 hover:bg-chart-2 hover:opacity-90",
+        "rounded-full fixed bottom-4 right-4 bg-chart-2 text-background shadow-md shadow-chart-2 hover:bg-chart-2 hover:opacity-90 z-50",
         {
           hidden: !showBackToTop,
         }

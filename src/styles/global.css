@@ -36,9 +36,8 @@
 
 @layer base {
   * {
-    @apply border-border [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:shadow-[inset_0_0_6px_hsl(var(--primary))] [&::-webkit-scrollbar-thumb]:rounded-md [&::-webkit-scrollbar-thumb]:bg-primary;
+    @apply border-border [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-track]:shadow-[inset_0_0_6px_hsl(var(--primary))] [&::-webkit-scrollbar-thumb]:rounded-md [&::-webkit-scrollbar-thumb]:bg-primary;
     @apply [&::selection]:bg-primary [&::selection]:text-foreground;
-    cursor: url("/cursor.png"), auto;
   }
   body {
     @apply bg-background text-foreground;
@@ -79,4 +78,8 @@ iframe,
 
 a {
   cursor: pointer;
+}
+
+article {
+  @apply prose md:prose-lg lg:prose-xl prose-invert prose-img:rounded-xl prose-a:text-primary prose-pre:p-0;
 }

@@ -23,7 +23,7 @@ exports.createPages = async ({
 }: CreatePagesArgs) => {
   const { createPage } = actions;
 
-  const result = await graphql<{
+  const projectResult = await graphql<{
     allContentfulProject: { nodes: { slug: string }[] };
   }>(`
     query ProjectPages {
@@ -35,15 +35,35 @@ exports.createPages = async ({
     }
   `);
 
-  if (result.errors) {
+  const blogResult = await graphql<{
+    allContentfulBlogPost: { nodes: { slug: string }[] };
+  }>(`
+    query BlogPosts {
+      allContentfulBlogPost {
+        nodes {
+          slug
+        }
+      }
+    }
+  `);
+
+  if (projectResult.errors) {
     reporter.panicOnBuild(
-      `There was an error loading your Contentful posts`,
-      result.errors
+      `There was an error loading your Contentful projects`,
+      projectResult.errors
     );
     return;
   }
 
-  const projects = result.data?.allContentfulProject.nodes;
+  if (blogResult.errors) {
+    reporter.panicOnBuild(
+      `There was an error loading your Contentful blog posts`,
+      blogResult.errors
+    );
+    return;
+  }
+
+  const projects = projectResult.data?.allContentfulProject.nodes;
 
   if (projects?.length) {
     projects.forEach((project) => {
@@ -52,6 +72,20 @@ exports.createPages = async ({
         component: path.resolve("./src/templates/project.tsx"),
         context: {
           slug: project.slug,
+        },
+      });
+    });
+  }
+
+  const blogPosts = blogResult.data?.allContentfulBlogPost.nodes;
+
+  if (blogPosts?.length) {
+    blogPosts.forEach((post) => {
+      createPage({
+        path: `/blog/${post.slug}`,
+        component: path.resolve("./src/templates/post.tsx"),
+        context: {
+          slug: post.slug,
         },
       });
     });

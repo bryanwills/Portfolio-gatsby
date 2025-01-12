@@ -22,9 +22,12 @@ export default function Nav({
     <>
       <header
         role="banner"
-        className="p-2 bg-[linear-gradient(_43deg,#4158d0_0%,#c850c0_46%,#ffcc70_100%_)] text-white text-center underline"
+        className="p-2 bg-[linear-gradient(_43deg,#4158d0_0%,#c850c0_46%,#ffcc70_100%_)] text-white text-center"
       >
-        <a href={siteConfig.links.email}>Hire Me</a>
+        <a href={siteConfig.links.email} className="underline">
+          Hire Me
+        </a>{" "}
+        (Open for full-time)
       </header>
       <nav
         role="navigation"
@@ -54,11 +57,6 @@ export default function Nav({
               </Button>
             </Link>
           ))}
-          <a href={siteConfig.links.blog} target="_blank" rel="noreferrer">
-            <Button variant={"ghost"} className="font-semibold text-md">
-              Articles
-            </Button>
-          </a>
         </Row>
 
         {/* Mobile Menu */}
@@ -73,25 +71,17 @@ export default function Nav({
             {Object.values(siteConfig.pages).map((item) => (
               <DropdownMenuItem key={item.link} asChild>
                 <Link to={item.link} className="w-full">
-                  <span
-                    className={cn("font-semibold", {
+                  <Button
+                    variant={"ghost"}
+                    className={cn({
                       "text-primary": location.pathname === item.link,
                     })}
                   >
                     {item.title}
-                  </span>
+                  </Button>
                 </Link>
               </DropdownMenuItem>
             ))}
-            <DropdownMenuItem asChild>
-              <a
-                href={siteConfig.links.blog}
-                target="_blank"
-                className="w-full" rel="noreferrer"
-              >
-                <span className="font-semibold">Articles</span>
-              </a>
-            </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </nav>

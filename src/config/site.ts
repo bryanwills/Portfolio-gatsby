@@ -1,4 +1,5 @@
 export const siteConfig = {
+  author: "Rakesh Potnuru",
   links: {
     github: "https://rksh.link/github",
     linkedin: "https://rksh.link/linkedin",
@@ -12,6 +13,7 @@ export const siteConfig = {
     disposableEmailChecker: "https://disposable.debounce.io/?email=",
     youtube: "https://rksh.link/youtube",
     ytPlaylists: "https://www.youtube.com/@rakeshpotnuru/playlists",
+    donate: "https://rksh.link/donate",
   },
   pages: {
     home: {
@@ -32,6 +34,11 @@ export const siteConfig = {
       title: "Projects",
       link: "/projects",
       description: "Check out my projects",
+    },
+    blog: {
+      title: "Blog",
+      link: "/blog",
+      description: "Read my blog",
     },
   },
 };
