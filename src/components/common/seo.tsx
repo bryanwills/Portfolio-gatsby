@@ -37,7 +37,7 @@ export const Seo = ({
 
   return (
     <>
-      <title>{seo.title}</title>
+      <title lang="en-US">{seo.title}</title>
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.image} />
       <meta name="twitter:card" content="summary_large_image" />

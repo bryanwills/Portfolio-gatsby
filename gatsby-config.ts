@@ -10,6 +10,7 @@ const config: GatsbyConfig = {
     description:
       "I'm Rakesh - a software engineer, tech enthusiast and product creator with expertise in building innovative tools and products.",
     siteUrl: "https://itsrakesh.com",
+    feedUrl: "https://itsrakesh.com/rss.xml",
     twitterUsername: "@rakesh_at_tweet",
     image: "/og.png",
     author: "Rakesh Potnuru",
@@ -74,6 +75,66 @@ const config: GatsbyConfig = {
           {
             type: "contentfulBlogPostCoverJsonNode",
             cloudName: process.env.CLOUDINARY_CLOUD_NAME,
+          },
+        ],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+                feed_url: feedUrl
+                author
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({
+              query: { site, allContentfulBlogPost },
+            }: {
+              query: {
+                site: { siteMetadata: { siteUrl: string } };
+                allContentfulBlogPost: { nodes: Queries.ContentfulBlogPost[] };
+              };
+            }) => {
+              return allContentfulBlogPost.nodes.map((node) => {
+                return {
+                  title: node.title,
+                  description: node.description,
+                  date: node.publishedAt,
+                  url: site.siteMetadata.siteUrl + `/${node.slug}`,
+                  guid: site.siteMetadata.siteUrl + `/${node.slug}`,
+                  categories: node.tags,
+                };
+              });
+            },
+            query: `
+              {
+                allContentfulBlogPost(
+                  sort: { fields: [publishedAt], order: DESC }
+                ) {
+                  nodes {
+                    title
+                    slug
+                    publishedAt
+                    description
+                    tags
+                  }
+                }
+              }
+            `,
+            output: "/rss.xml",
+            title: "Rakesh's Blog",
+            match: "^/blog/",
           },
         ],
       },
