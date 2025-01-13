@@ -21,7 +21,7 @@ export default function Header({
   const readTime = readingTime(body?.body!);
 
   return (
-    <Col className="space-y-6 items-start">
+    <Col className="space-y-8 items-start">
       <GatsbyImage
         image={cover?.[0]?.gatsbyImageData!}
         alt={title!}
@@ -34,7 +34,7 @@ export default function Header({
           placeholder="blurred"
           width={50}
           height={50}
-          className="rounded-full bg-primary/80 not-prose"
+          className="rounded-full bg-primary/90 not-prose"
         />
         <Col className="items-start">
           <span>
@@ -56,7 +56,7 @@ export default function Header({
           </span>
         </Col>
       </Row>
-      <Heading level={1} className="text-foreground">
+      <Heading level={1} className="text-foreground leading-tight">
         {title}
       </Heading>
     </Col>
