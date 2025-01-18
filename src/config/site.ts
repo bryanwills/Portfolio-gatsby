@@ -1,5 +1,6 @@
 export const siteConfig = {
   author: "Rakesh Potnuru",
+  url: "https://itsrakesh.com",
   links: {
     github: "https://rksh.link/github",
     linkedin: "https://rksh.link/linkedin",
@@ -14,6 +15,7 @@ export const siteConfig = {
     youtube: "https://rksh.link/youtube",
     ytPlaylists: "https://www.youtube.com/@rakeshpotnuru/playlists",
     donate: "https://rksh.link/donate",
+    adLink: "https://www.publishstudio.one",
   },
   pages: {
     home: {

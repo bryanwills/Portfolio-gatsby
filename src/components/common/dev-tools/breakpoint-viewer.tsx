@@ -10,7 +10,7 @@ export function BreakpointViewer() {
       <span className="hidden sm:inline-block md:hidden">SM</span>
       <span className="hidden md:inline-block lg:hidden">MD</span>
       <span className="hidden lg:inline-block xl:hidden">LG</span>
-      <span className="hidden xl:inline-block">XL</span>
+      <span className="hidden xl:inline-block 2xl:hidden">XL</span>
       <span className="hidden 2xl:inline-block">2XL</span>
     </div>
   );

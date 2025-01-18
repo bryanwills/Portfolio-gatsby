@@ -38,6 +38,7 @@
   * {
     @apply border-border [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-track]:shadow-[inset_0_0_6px_hsl(var(--primary))] [&::-webkit-scrollbar-thumb]:rounded-md [&::-webkit-scrollbar-thumb]:bg-primary;
     @apply [&::selection]:bg-primary [&::selection]:text-foreground;
+    @apply scroll-smooth;
   }
   body {
     @apply bg-background text-foreground;

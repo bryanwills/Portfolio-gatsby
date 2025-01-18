@@ -6,6 +6,7 @@ import { Seo } from "@/components/common/seo";
 import Body from "@/components/modules/blog/post/body";
 import Footer from "@/components/modules/blog/post/footer";
 import Header from "@/components/modules/blog/post/header";
+import Toc from "@/components/modules/blog/post/toc";
 import { siteConfig } from "@/config/site";
 
 export default function PostTemplate({
@@ -13,13 +14,18 @@ export default function PostTemplate({
   location,
 }: PageProps<Queries.PostBySlugQuery>) {
   return (
-    <Layout location={location} className="justify-center flex">
+    <Layout location={location} className="justify-center flex gap-10">
       <article>
-        <Header post={data.contentfulBlogPost} />
-        <Body content={data.contentfulBlogPost?.body?.body!} />
-        <hr />
-        <Footer post={data.contentfulBlogPost} />
+        <div>
+          <Header post={data.contentfulBlogPost} />
+          <Body content={data.contentfulBlogPost?.body?.body!} />
+          <hr />
+          <Footer post={data.contentfulBlogPost} />
+        </div>
       </article>
+      <div className="hidden lg:block">
+        <Toc content={data.contentfulBlogPost?.body?.body!} />
+      </div>
     </Layout>
   );
 }

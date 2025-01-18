@@ -27,7 +27,7 @@ export default function Nav({
         <a href={siteConfig.links.email} className="underline">
           Hire Me
         </a>{" "}
-        (Open for full-time)
+        (Open to full-time)
       </header>
       <nav
         role="navigation"

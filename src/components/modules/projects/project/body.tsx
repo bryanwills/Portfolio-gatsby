@@ -17,7 +17,7 @@ export default function Body({
 
   return (
     <Col className="items-start space-y-8">
-      <Row className="justify-between w-full flex-col md:flex-row gap-4">
+      <Row className="justify-between w-full items-start flex-col md:flex-row gap-4">
         <Heading level={1}>{title}</Heading>
         <a
           href={url!}
@@ -38,7 +38,7 @@ export default function Body({
               <GatsbyImage
                 image={item?.icon?.gatsbyImageData as IGatsbyImageData}
                 alt={item?.title!}
-                className="w-4 h-4 rounded-[3px] mr-1"
+                className="w-4 h-4 mr-1"
               />
               {item?.title}
             </Badge>

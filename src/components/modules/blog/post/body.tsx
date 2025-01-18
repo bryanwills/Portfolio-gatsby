@@ -3,6 +3,7 @@ import React from "react";
 import Markdown, { ExtraProps } from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import rehypeSlug from "rehype-slug";
 
 import { Button } from "@/components/ui/reusables/button";
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard";
@@ -13,6 +14,7 @@ export default function Body({ content }: { content: string }) {
       components={{
         code: (props) => <Codeblock {...props} />,
       }}
+      rehypePlugins={[rehypeSlug]}
     >
       {content}
     </Markdown>
