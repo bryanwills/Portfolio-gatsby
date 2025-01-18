@@ -25,9 +25,9 @@ export default function BlogPage({
 export function Head() {
   return (
     <Seo
-      title={siteConfig.pages.blog.title}
-      description={siteConfig.pages.blog.description}
-      pathname={siteConfig.pages.blog.link}
+      title={siteConfig.pages.series.title}
+      description={siteConfig.pages.series.description}
+      pathname={siteConfig.pages.series.link}
     />
   );
 }
