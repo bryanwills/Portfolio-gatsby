@@ -59,11 +59,11 @@ export default function Toc({
           className="rounded-xl"
         />
       </a>
-      <div className="prose prose-invert border rounded-xl flex flex-col min-h-0">
-        <h3 className="text-xl font-medium p-4 pb-0 text-muted-foreground">
+      <div className="border rounded-xl flex flex-col min-h-0 p-4 gap-4">
+        <h3 className="text-xl font-medium text-muted-foreground">
           Table of Contents
         </h3>
-        <ol className="overflow-y-auto">
+        <ol className="overflow-y-auto list-decimal list-inside space-y-2 marker:text-muted-foreground">
           {toc.map((item) => (
             <li
               key={item.id}

@@ -16,12 +16,10 @@ export default function PostTemplate({
   return (
     <Layout location={location} className="justify-center flex gap-10">
       <article>
-        <div>
-          <Header post={data.contentfulBlogPost} />
-          <Body content={data.contentfulBlogPost?.body?.body!} />
-          <hr />
-          <Footer post={data.contentfulBlogPost} />
-        </div>
+        <Header post={data.contentfulBlogPost} />
+        <Body content={data.contentfulBlogPost?.body?.body!} />
+        <hr />
+        <Footer post={data.contentfulBlogPost} />
       </article>
       <div className="hidden lg:block">
         <Toc

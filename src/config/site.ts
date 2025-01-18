@@ -42,5 +42,10 @@ export const siteConfig = {
       link: "/blog",
       description: "Read my blog",
     },
+    series: {
+      title: "Series",
+      link: "/blog/series",
+      description: "Read my series",
+    },
   },
 };

@@ -2,11 +2,10 @@ import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
 import React, { useState } from "react";
 
 import { Icons } from "@/assets/icons";
+import { ProjectItem } from "@/components/modules/projects/project/project-item";
 import { Heading } from "@/components/ui/heading";
 import { Button } from "@/components/ui/reusables/button";
 import Row from "@/components/ui/row";
-
-import { ProjectItem } from "../home/recent-projects";
 
 export default function ProjectsList({
   allContentfulProject,

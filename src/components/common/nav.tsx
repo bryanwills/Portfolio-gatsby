@@ -45,18 +45,22 @@ export default function Nav({
 
         {/* Desktop Menu */}
         <Row className="hidden md:flex gap-2">
-          {Object.values(siteConfig.pages).map((item) => (
-            <Link key={item.link} to={item.link}>
-              <Button
-                variant={"ghost"}
-                className={cn("font-semibold text-md", {
-                  "text-primary": location.pathname === item.link,
-                })}
-              >
-                {item.title}
-              </Button>
-            </Link>
-          ))}
+          {Object.values(siteConfig.pages)
+            .filter((item) => item !== siteConfig.pages.series)
+            .map((item) => (
+              <Link key={item.link} to={item.link}>
+                <Button
+                  variant={"ghost"}
+                  className={cn("font-semibold text-md", {
+                    "text-primary":
+                      location.pathname.startsWith(item.link) &&
+                      (item.link !== "/" || location.pathname === "/"),
+                  })}
+                >
+                  {item.title}
+                </Button>
+              </Link>
+            ))}
         </Row>
 
         {/* Mobile Menu */}
@@ -68,20 +72,22 @@ export default function Nav({
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className="w-48">
-            {Object.values(siteConfig.pages).map((item) => (
-              <DropdownMenuItem key={item.link} asChild>
-                <Link to={item.link} className="w-full">
-                  <Button
-                    variant={"ghost"}
-                    className={cn({
-                      "text-primary": location.pathname === item.link,
-                    })}
-                  >
-                    {item.title}
-                  </Button>
-                </Link>
-              </DropdownMenuItem>
-            ))}
+            {Object.values(siteConfig.pages)
+              .filter((item) => item !== siteConfig.pages.series)
+              .map((item) => (
+                <DropdownMenuItem key={item.link} asChild>
+                  <Link to={item.link} className="w-full">
+                    <Button
+                      variant={"ghost"}
+                      className={cn({
+                        "text-primary": location.pathname === item.link,
+                      })}
+                    >
+                      {item.title}
+                    </Button>
+                  </Link>
+                </DropdownMenuItem>
+              ))}
           </DropdownMenuContent>
         </DropdownMenu>
       </nav>

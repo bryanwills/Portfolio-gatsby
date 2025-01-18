@@ -1,12 +1,11 @@
 import Giscus from "@giscus/react";
 import React from "react";
 
+import { PostItem } from "@/components/modules/blog/post/post-item";
 import { Heading } from "@/components/ui/heading";
 import { Button } from "@/components/ui/reusables/button";
 import Row from "@/components/ui/row";
 import { siteConfig } from "@/config/site";
-
-import { PostItem } from "../../home/latest-blog-posts";
 
 export default function Footer({
   post,

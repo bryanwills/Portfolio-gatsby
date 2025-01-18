@@ -26,20 +26,8 @@ exports.createPages = async ({
   const projectResult = await graphql<{
     allContentfulProject: { nodes: { slug: string }[] };
   }>(`
-    query ProjectPages {
+    query Projects {
       allContentfulProject {
-        nodes {
-          slug
-        }
-      }
-    }
-  `);
-
-  const blogResult = await graphql<{
-    allContentfulBlogPost: { nodes: { slug: string }[] };
-  }>(`
-    query BlogPosts {
-      allContentfulBlogPost {
         nodes {
           slug
         }
@@ -51,14 +39,6 @@ exports.createPages = async ({
     reporter.panicOnBuild(
       `There was an error loading your Contentful projects`,
       projectResult.errors
-    );
-    return;
-  }
-
-  if (blogResult.errors) {
-    reporter.panicOnBuild(
-      `There was an error loading your Contentful blog posts`,
-      blogResult.errors
     );
     return;
   }
@@ -77,6 +57,26 @@ exports.createPages = async ({
     });
   }
 
+  const blogResult = await graphql<{
+    allContentfulBlogPost: { nodes: { slug: string }[] };
+  }>(`
+    query BlogPosts {
+      allContentfulBlogPost {
+        nodes {
+          slug
+        }
+      }
+    }
+  `);
+
+  if (blogResult.errors) {
+    reporter.panicOnBuild(
+      `There was an error loading your Contentful blog posts`,
+      blogResult.errors
+    );
+    return;
+  }
+
   const blogPosts = blogResult.data?.allContentfulBlogPost.nodes;
 
   if (blogPosts?.length) {
@@ -86,6 +86,40 @@ exports.createPages = async ({
         component: path.resolve("./src/templates/post.tsx"),
         context: {
           slug: post.slug,
+        },
+      });
+    });
+  }
+
+  const seriesResult = await graphql<{
+    allContentfulBlogSeries: { nodes: { slug: string }[] };
+  }>(`
+    query BlogSeries {
+      allContentfulBlogSeries {
+        nodes {
+          slug
+        }
+      }
+    }
+  `);
+
+  if (seriesResult.errors) {
+    reporter.panicOnBuild(
+      `There was an error loading your Contentful blog series`,
+      seriesResult.errors
+    );
+    return;
+  }
+
+  const series = seriesResult.data?.allContentfulBlogSeries.nodes;
+
+  if (series?.length) {
+    series.forEach((series) => {
+      createPage({
+        path: `/blog/series/${series.slug}`,
+        component: path.resolve("./src/templates/series.tsx"),
+        context: {
+          slug: series.slug,
         },
       });
     });
