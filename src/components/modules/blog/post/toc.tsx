@@ -30,7 +30,13 @@ function generateToc(markdown: string): TocItem[] {
   return toc;
 }
 
-export default function Toc({ content }: { content: string }) {
+export default function Toc({
+  content,
+  href,
+}: {
+  content: string;
+  href: string;
+}) {
   const [toc, setToc] = useState<TocItem[]>([]);
 
   useEffect(() => {
@@ -40,7 +46,7 @@ export default function Toc({ content }: { content: string }) {
   return (
     <aside className="sticky top-4 flex flex-col gap-4 max-h-[calc(100vh-2rem)]">
       <a
-        href={`${siteConfig.links.adLink}/?utm_source=blog&utm_medium=banner&utm_content=${window.location.href}`}
+        href={`${siteConfig.links.adLink}/?utm_source=blog&utm_medium=banner&utm_content=${href}`}
         target="_blank"
         className="flex-shrink-0"
         rel="noreferrer"

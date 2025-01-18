@@ -24,7 +24,10 @@ export default function PostTemplate({
         </div>
       </article>
       <div className="hidden lg:block">
-        <Toc content={data.contentfulBlogPost?.body?.body!} />
+        <Toc
+          content={data.contentfulBlogPost?.body?.body!}
+          href={location.href}
+        />
       </div>
     </Layout>
   );
