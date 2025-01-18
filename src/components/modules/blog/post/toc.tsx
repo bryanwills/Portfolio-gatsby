@@ -68,7 +68,7 @@ export default function Toc({
             <li
               key={item.id}
               style={{ marginLeft: `${(item.level - 1) * 10}px` }}
-              className="py-1"
+              className="py-1 font-medium"
             >
               <a
                 href={`#${item.id}`}

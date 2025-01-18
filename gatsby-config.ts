@@ -140,7 +140,7 @@ const config: GatsbyConfig = {
       },
     },
   ],
-  trailingSlash: "ignore",
+  trailingSlash: "never",
 };
 
 export default config;

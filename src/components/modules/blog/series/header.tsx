@@ -7,7 +7,7 @@ export default function Header({
   const { title, cover, description, posts } = contentfulBlogSeries!;
 
   return (
-    <aside className="md:basis-1/3 space-y-4">
+    <aside className="md:basis-1/3 space-y-4 md:sticky md:top-4 md:h-full">
       <GatsbyImage
         image={cover?.gatsbyImageData!}
         alt={title!}
