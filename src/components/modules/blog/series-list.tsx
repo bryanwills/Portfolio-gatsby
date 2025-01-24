@@ -28,7 +28,7 @@ function SeriesItem({
 }: Queries.BlogPageQuery["allContentfulBlogSeries"]["nodes"][number]) {
   return (
     <Link to={`${siteConfig.pages.series.link}/${slug}`}>
-      <Col className="rounded-xl border hover:opacity-80">
+      <Col className="rounded-xl border hover:opacity-80 h-full">
         <AspectRatio ratio={16 / 9} className="relative">
           <GatsbyImage
             image={cover?.gatsbyImageData!}
