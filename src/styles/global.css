@@ -82,5 +82,5 @@ a {
 }
 
 article {
-  @apply prose md:prose-lg lg:prose-xl prose-invert prose-img:rounded-xl prose-img:aspect-[1.9/1] prose-a:text-primary prose-pre:p-0;
+  @apply prose md:prose-lg lg:prose-xl prose-invert prose-img:rounded-xl prose-a:text-primary prose-pre:p-0;
 }
