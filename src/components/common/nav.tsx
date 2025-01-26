@@ -20,15 +20,17 @@ export default function Nav({
 }: Readonly<{ location: PageProps["location"] }>) {
   return (
     <>
-      <header
-        role="banner"
-        className="p-2 bg-[linear-gradient(_43deg,#4158d0_0%,#c850c0_46%,#ffcc70_100%_)] text-white text-center"
-      >
-        <a href={siteConfig.links.email} className="underline">
-          Hire Me
-        </a>{" "}
-        (Open to full-time)
-      </header>
+      {!siteConfig.hideBanner && (
+        <header
+          role="banner"
+          className="p-2 bg-[linear-gradient(_43deg,#4158d0_0%,#c850c0_46%,#ffcc70_100%_)] text-white text-center"
+        >
+          <a href={siteConfig.links.email} className="underline">
+            Hire Me
+          </a>{" "}
+          (Open to full-time)
+        </header>
+      )}
       <nav
         role="navigation"
         className="relative flex justify-between items-center py-8 px-[7%]"

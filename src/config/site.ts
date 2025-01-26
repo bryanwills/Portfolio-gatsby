@@ -48,4 +48,5 @@ export const siteConfig = {
       description: "Check out my series",
     },
   },
+  hideBanner: true,
 };

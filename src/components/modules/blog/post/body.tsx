@@ -66,14 +66,14 @@ function Codeblock(
         children={value}
         language={language}
         style={oneDark}
-        wrapLongLines={true}
+        wrapLongLines
         showLineNumbers
         customStyle={{
           margin: 0,
           borderTopRightRadius: 0,
           borderTopLeftRadius: 0,
         }}
-        className="max-w-[26rem] sm:max-w-full max-h-[30rem]"
+        className="max-w-sm sm:max-w-full max-h-[30rem]"
       />
     </div>
   ) : (
