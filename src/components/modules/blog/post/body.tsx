@@ -2,7 +2,7 @@ import { CheckIcon, CopyIcon } from "lucide-react";
 import React from "react";
 import Markdown, { ExtraProps } from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { oneDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { darcula as theme } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import rehypeSlug from "rehype-slug";
 
 import { Button } from "@/components/ui/reusables/button";
@@ -65,7 +65,7 @@ function Codeblock(
         PreTag="div"
         children={value}
         language={language}
-        style={oneDark}
+        style={theme}
         wrapLongLines
         showLineNumbers
         customStyle={{
