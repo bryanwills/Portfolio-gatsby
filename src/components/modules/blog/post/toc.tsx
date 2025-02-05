@@ -1,7 +1,8 @@
 import { StaticImage } from "gatsby-plugin-image";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { remark } from "remark";
 import remarkHtml from "remark-html";
+import { Root } from "remark-html/lib";
 
 import { siteConfig } from "@/config/site";
 
@@ -11,19 +12,49 @@ interface TocItem {
   level: number;
 }
 
+function extractTextFromPhrasingContent(
+  node: Root["children"][number]
+): string {
+  if ("value" in node) {
+    return node.value;
+  }
+  if ("children" in node) {
+    return node.children
+      .map((child: Root["children"][number]) =>
+        extractTextFromPhrasingContent(child)
+      )
+      .join("");
+  }
+  return "";
+}
+
 function generateToc(markdown: string): TocItem[] {
   const toc: TocItem[] = [];
-
   const processor = remark().use(remarkHtml);
 
-  processor.parse(markdown).children.forEach((node: any) => {
+  const ast = processor.parse(markdown);
+
+  ast.children.forEach((node: Root["children"][number]) => {
     if (node.type === "heading") {
-      const id = node.children[0].value.toLowerCase().replace(/\s+/g, "-");
-      toc.push({
-        id,
-        text: node.children[0].value,
-        level: node.depth,
-      });
+      const headingNode = node;
+      const text = headingNode.children
+        .map((child: Root["children"][number]) =>
+          extractTextFromPhrasingContent(child)
+        )
+        .join("");
+
+      if (text) {
+        const id = text
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, "-")
+          .replace(/(^-|-$)/g, "");
+
+        toc.push({
+          id,
+          text,
+          level: headingNode.depth,
+        });
+      }
     }
   });
 
@@ -37,12 +68,6 @@ export default function Toc({
   content: string;
   href: string;
 }) {
-  const [toc, setToc] = useState<TocItem[]>([]);
-
-  useEffect(() => {
-    setToc(generateToc(content));
-  }, [content]);
-
   return (
     <aside className="sticky top-4 flex flex-col gap-4 max-h-[calc(100vh-2rem)]">
       <a
@@ -64,7 +89,7 @@ export default function Toc({
           Table of Contents
         </h3>
         <ol className="overflow-y-auto list-decimal list-inside space-y-2 marker:text-muted-foreground">
-          {toc.map((item) => (
+          {generateToc(content).map((item) => (
             <li
               key={item.id}
               style={{ marginLeft: `${(item.level - 1) * 10}px` }}
