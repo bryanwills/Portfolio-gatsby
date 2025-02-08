@@ -82,12 +82,10 @@ export default function Contact() {
       });
 
       if (response.ok) {
-        toast.success(
-          "Message sent successfully! I will get back to you soon.",
-          {
-            duration: 10000,
-          }
-        );
+        toast.success("Message received! I will get back to you soon.", {
+          duration: 10000,
+        });
+        form.reset();
       } else {
         toast.error("Something went wrong, please try again later.");
       }
