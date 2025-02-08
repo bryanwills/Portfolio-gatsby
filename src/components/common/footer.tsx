@@ -1,4 +1,4 @@
-import { Link } from "gatsby";
+import { Link, PageProps } from "gatsby";
 import React from "react";
 
 import { Icons } from "@/assets/icons";
@@ -6,8 +6,13 @@ import { Icons } from "@/assets/icons";
 import { SocialItems } from "../modules/home/hero";
 import Col from "../ui/col";
 import Row from "../ui/row";
+import Subscribe from "./subscribe";
 
-export default function Footer() {
+export default function Footer({
+  location,
+}: {
+  location: PageProps["location"];
+}) {
   return (
     <footer className="bg-black p-[7%]">
       <Col className="space-y-4">
@@ -22,6 +27,11 @@ export default function Footer() {
             <Icons.Feed />
           </Link>
         </Row>
+        <Subscribe
+          utm_source={"portfolio"}
+          utm_medium={"footer"}
+          referring_site={location.href}
+        />
         <p className="text-muted-foreground">
           &copy; 2021 - {new Date().getFullYear()} itsrakesh. v2.
         </p>

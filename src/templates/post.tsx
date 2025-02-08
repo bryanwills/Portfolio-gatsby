@@ -6,7 +6,7 @@ import { Seo } from "@/components/common/seo";
 import Body from "@/components/modules/blog/post/body";
 import Footer from "@/components/modules/blog/post/footer";
 import Header from "@/components/modules/blog/post/header";
-import Toc from "@/components/modules/blog/post/toc";
+import Sidebar from "@/components/modules/blog/post/sidebar";
 import { siteConfig } from "@/config/site";
 
 export default function PostTemplate({
@@ -22,7 +22,7 @@ export default function PostTemplate({
         <Footer post={data.contentfulBlogPost} />
       </article>
       <div className="hidden lg:block">
-        <Toc
+        <Sidebar
           content={data.contentfulBlogPost?.body?.body!}
           href={location.href}
         />

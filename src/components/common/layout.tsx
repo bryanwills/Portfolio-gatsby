@@ -27,7 +27,7 @@ export default function Layout({
         {children}
       </main>
       <Cta />
-      <Footer />
+      <Footer location={location} />
       <Toaster />
       {process.env.NODE_ENV === "development" && <BreakpointViewer />}
     </>

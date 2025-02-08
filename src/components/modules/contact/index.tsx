@@ -29,7 +29,7 @@ const formSchema = z.object({
     .max(5000, "Message is too long"),
 });
 
-const isDisposableEmail = async (email: string): Promise<boolean> => {
+export const isDisposableEmail = async (email: string): Promise<boolean> => {
   try {
     const response = await fetch(
       `${siteConfig.links.disposableEmailChecker}${email}`,

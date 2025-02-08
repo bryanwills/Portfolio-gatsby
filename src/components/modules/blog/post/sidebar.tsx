@@ -4,6 +4,7 @@ import { remark } from "remark";
 import remarkHtml from "remark-html";
 import { Root } from "remark-html/lib";
 
+import Subscribe from "@/components/common/subscribe";
 import { siteConfig } from "@/config/site";
 
 interface TocItem {
@@ -61,7 +62,7 @@ function generateToc(markdown: string): TocItem[] {
   return toc;
 }
 
-export default function Toc({
+export default function Sidebar({
   content,
   href,
 }: {
@@ -84,6 +85,11 @@ export default function Toc({
           className="rounded-xl"
         />
       </a>
+      <Subscribe
+        utm_source={"portfolio"}
+        utm_medium={"blog"}
+        referring_site={href}
+      />
       <div className="border rounded-xl flex flex-col min-h-0 p-4 gap-4">
         <h3 className="text-xl font-medium text-muted-foreground">
           Table of Contents
