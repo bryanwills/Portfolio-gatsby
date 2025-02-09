@@ -15,7 +15,7 @@ export const siteConfig = {
     youtube: "https://rksh.link/youtube",
     ytPlaylists: "https://www.youtube.com/@rakeshpotnuru/playlists",
     donate: "https://rksh.link/donate",
-    adLink: "https://www.publishstudio.one",
+    adLink: "https://myonepost.com",
   },
   pages: {
     home: {
