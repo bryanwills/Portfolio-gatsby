@@ -34,7 +34,7 @@ export function Head() {
 
 export const pageQuery = graphql`
   query SeriesPage {
-    allContentfulBlogSeries {
+    allContentfulBlogSeries(sort: { updatedAt: DESC }) {
       nodes {
         id
         slug

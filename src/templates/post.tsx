@@ -67,16 +67,18 @@ export const pageQuery = graphql`
       title
       updatedAt
       recommendedPosts {
-        id
-        slug
-        title
-        cover {
-          gatsbyImageData(placeholder: BLURRED)
+        ... on ContentfulBlogPost {
+          id
+          slug
+          title
+          cover {
+            gatsbyImageData(placeholder: BLURRED)
+          }
+          isFeatured
+          excerpt
+          tags
+          publishedAt
         }
-        isFeatured
-        excerpt
-        tags
-        publishedAt
       }
     }
   }
