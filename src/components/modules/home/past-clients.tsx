@@ -13,7 +13,7 @@ export default function PastClients({
 }>) {
   return (
     <Col className="space-y-16">
-      <Heading level={2}>Past Clients</Heading>
+      <Heading level={2}>Worked With</Heading>
       <Marquee autoFill pauseOnHover>
         <Row>
           {pastClients.nodes.map((client) => (
