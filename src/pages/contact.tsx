@@ -19,8 +19,8 @@ export default function ContactPage({ location }: PageProps) {
 export function Head() {
   return (
     <Seo
-      title={siteConfig.pages.about.title}
-      description={siteConfig.pages.about.description}
+      title={siteConfig.pages.contact.title}
+      description={siteConfig.pages.contact.description}
       pathname={siteConfig.pages.contact.link}
     />
   );
