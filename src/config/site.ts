@@ -16,6 +16,7 @@ export const siteConfig = {
     ytPlaylists: "https://www.youtube.com/@rakeshpotnuru/playlists",
     donate: "https://rksh.link/donate",
     adLink: "https://myonepost.com",
+    upi: "rakeshpotnuru@axisb",
   },
   pages: {
     home: {
