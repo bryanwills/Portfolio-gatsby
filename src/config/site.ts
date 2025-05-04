@@ -48,6 +48,11 @@ export const siteConfig = {
       link: "/blog/series",
       description: "Check out my series",
     },
+    snippets: {
+      title: "Snippets",
+      link: "/snippets",
+      description: "Check out these helpful and reusable code snippets",
+    },
   },
   hideBanner: true,
 };

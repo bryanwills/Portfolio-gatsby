@@ -3,9 +3,9 @@ import React from "react";
 
 import { Icons } from "@/assets/icons";
 
-import { SocialItems } from "../modules/home/hero";
 import Col from "../ui/col";
 import Row from "../ui/row";
+import SocialItems from "./social-items";
 import Subscribe from "./subscribe";
 
 export default function Footer({

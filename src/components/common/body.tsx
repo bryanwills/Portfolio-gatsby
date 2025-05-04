@@ -7,6 +7,7 @@ import rehypeSlug from "rehype-slug";
 
 import { Button } from "@/components/ui/reusables/button";
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard";
+import { cn } from "@/utils/cn";
 
 export default function Body({ content }: { content: string }) {
   return (
@@ -77,7 +78,13 @@ function Codeblock(
       />
     </div>
   ) : (
-    <code {...rest} className={className}>
+    <code
+      {...rest}
+      className={cn(
+        "bg-muted p-1.5 py-1 text-sm rounded-sm before:content-[''] after:content-[''] font-medium text-muted-foreground",
+        className
+      )}
+    >
       {children}
     </code>
   );

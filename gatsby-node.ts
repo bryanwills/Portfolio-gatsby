@@ -124,4 +124,38 @@ exports.createPages = async ({
       });
     });
   }
+
+  const snippetsResult = await graphql<{
+    allContentfulSnippet: { nodes: { slug: string }[] };
+  }>(`
+    query Snippets {
+      allContentfulSnippet {
+        nodes {
+          slug
+        }
+      }
+    }
+  `);
+
+  if (snippetsResult.errors) {
+    reporter.panicOnBuild(
+      `There was an error loading your Contentful snippets`,
+      snippetsResult.errors
+    );
+    return;
+  }
+
+  const snippets = snippetsResult.data?.allContentfulSnippet.nodes;
+
+  if (snippets?.length) {
+    snippets.forEach((snippets) => {
+      createPage({
+        path: `/snippets/${snippets.slug}`,
+        component: path.resolve("./src/templates/snippet.tsx"),
+        context: {
+          slug: snippets.slug,
+        },
+      });
+    });
+  }
 };

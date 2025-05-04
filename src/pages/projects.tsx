@@ -6,7 +6,7 @@ import { Seo } from "@/components/common/seo";
 import ProjectsList from "@/components/modules/projects/projects-list";
 import { siteConfig } from "@/config/site";
 
-export default function Projects({
+export default function ProjectsPage({
   location,
   data,
 }: Readonly<PageProps<Queries.ProjectsPageQuery>>) {

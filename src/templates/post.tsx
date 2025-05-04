@@ -1,9 +1,9 @@
 import { graphql, PageProps } from "gatsby";
 import React from "react";
 
+import Body from "@/components/common/body";
 import Layout from "@/components/common/layout";
 import { Seo } from "@/components/common/seo";
-import Body from "@/components/modules/blog/post/body";
 import Footer from "@/components/modules/blog/post/footer";
 import Header from "@/components/modules/blog/post/header";
 import Sidebar from "@/components/modules/blog/post/sidebar";
