@@ -119,9 +119,7 @@ const config: GatsbyConfig = {
             },
             query: `
               {
-                allContentfulBlogPost(
-                  sort: { fields: [publishedAt], order: DESC }
-                ) {
+                allContentfulBlogPost(sort: {publishedAt: DESC}) {
                   nodes {
                     title
                     slug
