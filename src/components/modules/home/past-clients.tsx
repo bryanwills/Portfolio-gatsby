@@ -14,14 +14,14 @@ export default function PastClients({
   return (
     <Col className="space-y-16">
       <Heading level={2}>Worked With</Heading>
-      <Marquee autoFill pauseOnHover>
+      <Marquee autoFill pauseOnHover speed={200}>
         <Row>
           {pastClients.nodes.map((client) => (
             <GatsbyImage
               key={client.name}
               image={client.logo?.gatsbyImageData as IGatsbyImageData}
               alt={client.name ?? ""}
-              className="grayscale hover:grayscale-0 w-28 h-full mx-10"
+              className="w-28 h-full mx-10"
               title={client.name ?? ""}
             />
           ))}
