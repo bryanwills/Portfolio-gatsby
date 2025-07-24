@@ -1,11 +1,9 @@
-import { StaticImage } from "gatsby-plugin-image";
 import React from "react";
 import { remark } from "remark";
 import remarkHtml from "remark-html";
 import { Root } from "remark-html/lib";
 
 import Subscribe from "@/components/common/subscribe";
-import { siteConfig } from "@/config/site";
 
 interface TocItem {
   id: string;
@@ -71,7 +69,7 @@ export default function Sidebar({
 }) {
   return (
     <aside className="sticky top-4 flex flex-col gap-4 max-h-[calc(100vh-2rem)]">
-      <a
+      {/* <a
         href={`${siteConfig.links.adLink}/?utm_source=blog&utm_medium=banner&utm_content=${href}`}
         target="_blank"
         className="flex-shrink-0"
@@ -84,33 +82,35 @@ export default function Sidebar({
           height={250}
           className="rounded-xl"
         />
-      </a>
+      </a> */}
       <Subscribe
         utm_source={"portfolio"}
         utm_medium={"blog"}
         referring_site={href}
       />
-      <div className="border rounded-xl flex flex-col min-h-0 p-4 gap-4">
-        <h3 className="text-xl font-medium text-muted-foreground">
-          Table of Contents
-        </h3>
-        <ol className="overflow-y-auto list-decimal list-inside space-y-2 marker:text-muted-foreground">
-          {generateToc(content).map((item) => (
-            <li
-              key={item.id}
-              style={{ marginLeft: `${(item.level - 1) * 10}px` }}
-              className="py-1 font-medium"
-            >
-              <a
-                href={`#${item.id}`}
-                className="no-underline hover:text-primary transition-colors duration-200"
+      {generateToc(content).length > 0 && (
+        <div className="border rounded-xl flex flex-col min-h-0 p-4 gap-4">
+          <h3 className="text-xl font-medium text-muted-foreground">
+            Table of Contents
+          </h3>
+          <ol className="overflow-y-auto list-decimal list-inside space-y-2 marker:text-muted-foreground">
+            {generateToc(content).map((item) => (
+              <li
+                key={item.id}
+                style={{ marginLeft: `${(item.level - 1) * 10}px` }}
+                className="py-1 font-medium"
               >
-                {item.text}
-              </a>
-            </li>
-          ))}
-        </ol>
-      </div>
+                <a
+                  href={`#${item.id}`}
+                  className="no-underline hover:text-primary transition-colors duration-200"
+                >
+                  {item.text}
+                </a>
+              </li>
+            ))}
+          </ol>
+        </div>
+      )}
     </aside>
   );
 }

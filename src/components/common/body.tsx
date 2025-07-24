@@ -4,6 +4,7 @@ import Markdown, { ExtraProps } from "react-markdown";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { darcula as theme } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import rehypeSlug from "rehype-slug";
+import remarkGfm from "remark-gfm";
 
 import { Button } from "@/components/ui/reusables/button";
 import { useCopyToClipboard } from "@/hooks/use-copy-to-clipboard";
@@ -16,6 +17,7 @@ export default function Body({ content }: { content: string }) {
         code: (props) => <Codeblock {...props} />,
       }}
       rehypePlugins={[rehypeSlug]}
+      remarkPlugins={[remarkGfm]}
     >
       {content}
     </Markdown>
@@ -63,7 +65,6 @@ function Codeblock(
       {/* @ts-ignore */}
       <SyntaxHighlighter
         {...rest}
-        PreTag="div"
         children={value}
         language={language}
         style={theme}

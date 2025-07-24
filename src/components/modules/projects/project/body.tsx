@@ -45,7 +45,7 @@ export default function Body({
           ))}
         </Row>
       )}
-      <div className="space-y-2">
+      <div className="space-y-2 whitespace-pre-wrap">
         {body?.raw && renderRichText(body, options)}
       </div>
     </Col>
