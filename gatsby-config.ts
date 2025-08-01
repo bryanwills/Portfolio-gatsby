@@ -63,7 +63,7 @@ const config: GatsbyConfig = {
           head: true,
           respectDNT: true,
           // Avoids sending pageview hits from custom paths
-          exclude: ["/preview/**", "/do-not-track/me/too/"],
+          exclude: ["/preview/**"],
           delayOnRouteUpdate: 0,
         },
       },

@@ -7,7 +7,7 @@ import SeriesList from "@/components/modules/blog/series-list";
 import { Heading } from "@/components/ui/heading";
 import { siteConfig } from "@/config/site";
 
-export default function BlogPage({
+export default function SeriesPage({
   location,
   data,
 }: PageProps<Queries.BlogPageQuery>) {
