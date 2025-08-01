@@ -27,7 +27,7 @@ export default function ImageResizerCropperPage({ location }: PageProps) {
 export function Head() {
   return (
     <Seo
-      title={siteConfig.pages.tools.pages.imageResizerCropper.title}
+      title={"Online Image Resizer & Cropper - Instant, Easy & Private"}
       description={siteConfig.pages.tools.pages.imageResizerCropper.description}
       pathname={siteConfig.pages.tools.pages.imageResizerCropper.link}
       image={siteConfig.pages.tools.pages.imageResizerCropper.image}

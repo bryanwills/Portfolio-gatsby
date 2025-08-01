@@ -28,7 +28,7 @@ export default function ColorPaletteExtractorPage({ location }: PageProps) {
 export function Head() {
   return (
     <Seo
-      title={siteConfig.pages.tools.pages.colorPaletteExtractor.title}
+      title={"Color Palette Extractor from Image - Fast & Free Tool"}
       description={
         siteConfig.pages.tools.pages.colorPaletteExtractor.description
       }

@@ -28,7 +28,7 @@ export default function ImageConverterPage({ location }: PageProps) {
 export function Head() {
   return (
     <Seo
-      title={siteConfig.pages.tools.pages.imageConverter.title}
+      title={"Free Online Image Converter - JPG, PNG, WebP, AVIF & More"}
       description={siteConfig.pages.tools.pages.imageConverter.description}
       pathname={siteConfig.pages.tools.pages.imageConverter.link}
       image={siteConfig.pages.tools.pages.imageConverter.image}

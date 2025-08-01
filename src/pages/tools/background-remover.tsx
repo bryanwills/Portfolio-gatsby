@@ -28,7 +28,7 @@ export default function BackgroundRemoverPage({ location }: PageProps) {
 export function Head() {
   return (
     <Seo
-      title={siteConfig.pages.tools.pages.backgroundRemover.title}
+      title={"Free Online Background Remover - No Signup, No Uploads"}
       description={siteConfig.pages.tools.pages.backgroundRemover.description}
       pathname={siteConfig.pages.tools.pages.backgroundRemover.link}
       image={siteConfig.pages.tools.pages.backgroundRemover.image}
